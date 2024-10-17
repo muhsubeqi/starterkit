@@ -24,7 +24,14 @@
 @endsection
 
 @section('content')
-
+<x-hero-section
+    title="User"
+    subtitle="List of all users"
+    :breadcrumbs="[
+    ['label' => 'Management', 'url' => 'javascript:void(0)'],
+    ['label' => 'User'],
+]"
+/>
 <!-- Page Content -->
 <div class="content">
     <!-- Info -->

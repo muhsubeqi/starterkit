@@ -20,6 +20,14 @@
 @vite(['resources/js/pages/role.js'])
 @endsection
 @section('content')
+<x-hero-section
+    title="Role"
+    subtitle="List of all roles"
+    :breadcrumbs="[
+        ['label' => 'Dashboard', 'url' => 'javascript:void(0)'],
+        ['label' => 'Role'],
+    ]"
+/>
 <!-- Page Content -->
 <div class="content">
     <div class="block block-rounded" id="block-role">
