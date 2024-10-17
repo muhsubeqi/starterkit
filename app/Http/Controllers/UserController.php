@@ -98,7 +98,7 @@ class UserController extends Controller
             $user->assignRole($role->name);
             $data = [
                 'status' => 200,
-                'message' => 'success',
+                'message' => 'Successfully created user',
             ];
         } catch (\Throwable $th) {
             $data = [
@@ -137,7 +137,7 @@ class UserController extends Controller
             $user->syncRoles($role->name);
             $data = [
                 'status' => 200,
-                'message' => 'success',
+                'message' => 'Successfully updated user',
                 'data' => $user
             ];
         } catch (\Throwable $th) {
