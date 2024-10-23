@@ -4,7 +4,7 @@ import {initFormDelete, initFormPost, initFormValidation} from "../components/fo
 let userForm = $('#user-form')
 let formModal = $('#form-modal')
 const btnRefresh = $('#btn-refresh')
-One.helpers(['jq-validation'])
+One.helpersOnLoad(['jq-validation', 'jq-select2'])
 
 $('#role').select2({
     placeholder: 'Select Role',

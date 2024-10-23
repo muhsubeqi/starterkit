@@ -30,8 +30,8 @@
                             <div class="col-sm-9">
                                 <select class="form-select" name="role" id="role" style="width:100%">
                                     <option></option>
-                                    @foreach ($roles as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @foreach ($roles as $item => $value)
+                                    <option value="{{ $item }}">{{ $item->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

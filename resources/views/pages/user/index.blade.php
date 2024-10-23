@@ -1,4 +1,4 @@
-@extends('layouts.backend')
+@extends('layouts.backend',['filter' => true])
 
 @section('css')
 <!-- Page JS Plugins CSS -->
@@ -91,5 +91,8 @@
     <!-- END Dynamic Table Full -->
 </div>
 @include('pages.user.partials.form')
+@section('filter-content')
+    <x-filter.input-select name="filter-role" label="Role" :options="$filterRoles" />
+@endsection
 <!-- END Page Content -->
 @endsection

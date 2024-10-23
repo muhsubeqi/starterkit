@@ -37,7 +37,7 @@ class UserController extends Controller
             $columns[] = ["data" => 'action', "name" => 'action', "class" => 'text-center', "sortable" => false, "searchable" => false];
         }
 
-        $roles = Role::all();
+        $roles = Role::all()->pluck('name', 'id');
 
         return view('pages.user.index', compact('roles', 'columns'));
     }

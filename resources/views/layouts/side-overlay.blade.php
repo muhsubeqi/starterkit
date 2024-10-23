@@ -1,17 +1,15 @@
 <aside id="side-overlay" class="fs-sm">
     <!-- Side Header -->
-    <div class="content-header border-bottom">
-      <!-- User Avatar -->
-      <a class="img-link me-1" href="javascript:void(0)">
-        <img class="img-avatar img-avatar32" src="{{ asset('media/avatars/avatar10.jpg') }}" alt="">
-      </a>
-      <!-- END User Avatar -->
+    <div class="content-header border-bottom bg-dark">
+      <!-- Icon Filter -->
+        <i class="fas fa-filter text-white"></i>
+      <!-- END Icon Filter -->
 
-      <!-- User Info -->
+      <!-- Filter Info -->
       <div class="ms-2">
-        <a class="text-dark fw-semibold fs-sm" href="javascript:void(0)">John Smith</a>
+        <a class="text-white fw-semibold fs-sm" href="javascript:void(0)">Filter</a>
       </div>
-      <!-- END User Info -->
+      <!-- END Filter Info -->
 
       <!-- Close Side Overlay -->
       <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
@@ -24,9 +22,7 @@
 
     <!-- Side Content -->
     <div class="content-side">
-      <p>
-        Content..
-      </p>
+      @yield('filter-content')
     </div>
     <!-- END Side Content -->
   </aside>

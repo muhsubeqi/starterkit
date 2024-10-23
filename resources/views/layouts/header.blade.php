@@ -1,3 +1,6 @@
+@php
+    $filter = $filter ?? false;
+@endphp
 <header id="page-header">
     <!-- Header Content -->
     <div class="content-header">
@@ -177,13 +180,15 @@
             </div>
             <!-- END Notifications Dropdown -->
 
-            <!-- Toggle Side Overlay -->
-            <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-            <button type="button" class="btn btn-sm btn-alt-secondary ms-2" data-toggle="layout"
-                data-action="side_overlay_toggle">
-                <i class="fa fa-fw fa-list-ul fa-flip-horizontal"></i>
-            </button>
-            <!-- END Toggle Side Overlay -->
+            @if($filter)
+                <!-- Toggle Side Overlay -->
+                <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                <button type="button" class="btn btn-sm btn-alt-secondary ms-2" data-toggle="layout"
+                    data-action="side_overlay_toggle">
+                    <i class="fa fa-fw fa-filter fa-flip-horizontal"></i>
+                </button>
+                <!-- END Toggle Side Overlay -->
+            @endif
         </div>
         <!-- END Right Section -->
     </div>
