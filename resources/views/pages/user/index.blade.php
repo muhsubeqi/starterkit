@@ -92,7 +92,7 @@
 </div>
 @include('pages.user.partials.form')
 @section('filter-content')
-    <x-filter.input-select name="filter-role" label="Role" :options="$filterRoles" />
+    <x-filter.input-select name="filter-role" label="Role" :options="$roles" />
 @endsection
 <!-- END Page Content -->
 @endsection

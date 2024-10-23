@@ -31,7 +31,7 @@
                                 <select class="form-select" name="role" id="role" style="width:100%">
                                     <option></option>
                                     @foreach ($roles as $item => $value)
-                                    <option value="{{ $item }}">{{ $item->name }}</option>
+                                    <option value="{{ $item }}">{{ $value }}</option>
                                     @endforeach
                                 </select>
                             </div>
