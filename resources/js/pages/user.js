@@ -1,9 +1,11 @@
-import sweetAlert from "../helper/sweetalert"
 import {initFormDelete, initFormPost, initFormValidation} from "../components/form-data.js";
+import initImagePreview from "../components/image-preview.js";
+import initRefreshData from "../components/refresh-data.js";
 
 let userForm = $('#user-form')
 let formModal = $('#form-modal')
 const btnRefresh = $('#btn-refresh')
+
 One.helpersOnLoad(['jq-validation', 'jq-select2'])
 
 $('#role').select2({
@@ -23,7 +25,6 @@ const userFormRules = {
 }
 initFormValidation(userForm, userFormRules)
 
-
 // Datatable
 const dtTable =$('#user-table').DataTable({
     processing: false,
@@ -37,28 +38,28 @@ const dtTable =$('#user-table').DataTable({
     }
 })
 
-
 // Show Data Form Modal Edit or Create
 $(formModal).on('show.bs.modal', function (event) {
   let button = $(event.relatedTarget)
-  let id = button.data('id')
-  let name = button.data('name') || ''
-  let email = button.data('email') || ''
-  let role = button.data('role') || ''
-  let status = button.data('status') === 1
-
+  
   // Set modal title and form values
-  $(this).find('.modal-title').text(id ? 'Edit' : 'Create')
-  $(this).find('#id').val(id || '')
-  $(this).find('#name').val(name)
-  $(this).find('#email').val(email)
-  $(this).find('#role').val(role).change()
-  $(this).find('#status').prop('checked', status)
+  $(this).find('.block-title').text(button.data('id') ? 'Edit' : 'Create')
+  $(this).find('#id').val(button.data('id') || '')
+  $(this).find('#name').val(button.data('name') || '')
+  $(this).find('#email').val(button.data('email') || '')
+  $(this).find('#role').val(button.data('role') || '').trigger('change')
+  $(this).find('#status').prop('checked', button.data('status') === 1)
+  if (button.data('image')) {
+    $(this).find('#image-preview').attr('src', `${BASE_URL}/storage/images/user/${button.data('image') || ''}`)
+  }else{
+    $(this).find('#image-preview').attr('src', '')
+  }
 });
 
 // Reset Form when modal closed
 $(formModal).on('hidden.bs.modal', function () {
     $(userForm).validate().resetForm()
+    $(userForm).find('#image').val('')
 })
 
 // Submit Form
@@ -82,16 +83,6 @@ dtTable.on('click', '.btn-delete', function () {
     initFormDelete(url, dtTable)
 })
 
-dtTable.on('change', '.btn-status', function () {
-    const id = $(this).data('id')
-    const status = $(this).val()
-    const url = `${BASE_URL}/user/status/${id}`
-    initFormPost(null, {status: status}, url, dtTable)
-})
-
-
 // Refresh Data
-btnRefresh.on('click', function () {
-    dtTable.ajax.reload(null, false)
-    One.block('state_loading', '#block-user')
-})
+initRefreshData(btnRefresh, dtTable, '#block-user')
+initImagePreview('#image', '#image-preview')

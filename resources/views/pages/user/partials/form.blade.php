@@ -1,5 +1,6 @@
 <form id="user-form" method="post" action="" enctype="multipart/form-data">
-    <div class="modal fade" id="form-modal" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+    <div class="modal fade" id="form-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="formModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="block block-rounded block-transparent mb-0">
@@ -22,7 +23,8 @@
                         <div class="row mb-3">
                             <label for="email" class="col-sm-3 col-form-label">Email</label>
                             <div class="col-sm-9">
-                                <input type="email" class="form-control" id="email" name="email" placeholder="Enter Email">
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Enter Email">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -47,6 +49,9 @@
                         <div class="row mb-3">
                             <label for="image" class="col-sm-3 col-form-label">Image</label>
                             <div class="col-sm-9">
+                                <div class="mb-4">
+                                    <img class="img-avatar" src="" alt="" id="image-preview">
+                                </div>
                                 <input type="file" class="form-control" name="image" id="image">
                             </div>
                         </div>

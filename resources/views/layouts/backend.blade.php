@@ -22,13 +22,13 @@
   <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
 
   <!-- Modules -->
-  @yield('css')
+  @stack('styles')
   @vite(['resources/sass/main.scss', 'resources/js/oneui/app.js', 'resources/js/app.js'])
 
   <!-- Alternatively, you can also include a specific color theme after the main stylesheet to alter the default color theme of the template -->
   {{-- @vite(['resources/sass/main.scss', 'resources/sass/oneui/themes/amethyst.scss', 'resources/js/oneui/app.js'])
   --}}
-  @yield('js')
+  @stack('scripts')
 </head>
 
 <body>

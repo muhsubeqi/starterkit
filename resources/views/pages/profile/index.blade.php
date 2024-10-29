@@ -1,8 +1,8 @@
 @extends('layouts.backend')
-@section('css')
+@push('styles')
 <link rel="stylesheet" href="{{ asset('js/plugins/sweetalert2/sweetalert2.min.css') }}">
-@endsection
-@section('js')
+@endpush
+@push('scripts')
 <script src="{{ asset('js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
 <script type="module">
     @if(session('status') == 200)
@@ -15,7 +15,7 @@
         })
     @endif
 </script>
-@endsection
+@endpush
 @section('content')
 <!-- Hero -->
 <div class="bg-image" style="background-image: url('{{ asset('media/photos/photo10@2x.jpg') }}');">

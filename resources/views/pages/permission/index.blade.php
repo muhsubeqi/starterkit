@@ -1,9 +1,9 @@
 @extends('layouts.backend')
-@section('css')
+@push('styles')
 <!-- Page JS Plugins CSS -->
 <link rel="stylesheet" href="{{ asset('js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}">
-@endsection
-@section('js')
+@endpush
+@push('scripts')
 <!-- Page JS Plugins -->
 <script src="{{ asset('js/plugins/datatables/dataTables.min.js') }}"></script>
 <script src="{{ asset('js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
@@ -13,7 +13,7 @@
     const COLUMNS = @json($columns)
 </script>
 @vite(['resources/js/pages/permission.js'])
-@endsection
+@endpush
 @section('content')
 <!-- Page Content -->
 <div class="content">

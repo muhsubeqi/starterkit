@@ -50,7 +50,7 @@ class UserController extends Controller
             ->addIndexColumn()
             ->editColumn('image', function (User $user) {
                 if ($user->image) {
-                    return '<img src="' . asset('storage/images/user/' . $user->image) . '" width="100px" height="100px" />';
+                    return '<img src="' . asset('storage/images/user/' . $user->image) . '" width="50px" height="50px" />';
                 }
             })
             ->addColumn('role', function (User $user) {

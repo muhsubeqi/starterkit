@@ -1,17 +1,29 @@
 @extends('layouts.backend',['filter' => true])
 
-@section('css')
+@push('styles')
 <!-- Page JS Plugins CSS -->
 <link rel="stylesheet" href="{{ asset('js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}">
+<link rel="stylesheet" href="{{ asset('js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css') }}">
+<link rel="stylesheet" href="{{ asset('js/plugins/datatables-responsive-bs5/css/responsive.bootstrap5.min.css') }}">
 <link rel="stylesheet" href="{{ asset('js/plugins/select2/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('js/plugins/sweetalert2/sweetalert2.min.css') }}">
-@endsection
+@endpush
 
-@section('js')
+@push('scripts')
 
 <!-- Page JS Plugins -->
 <script src="{{ asset('js/plugins/datatables/dataTables.min.js') }}"></script>
 <script src="{{ asset('js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
+<script src="{{ asset('js/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('js/plugins/datatables-responsive-bs5/js/responsive.bootstrap5.min.js') }}"></script>
+<script src="{{ asset('js/plugins/datatables-buttons/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('js/plugins/datatables-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
+<script src="{{ asset('js/plugins/datatables-buttons-jszip/jszip.min.js') }}"></script>
+<script src="{{ asset('js/plugins/datatables-buttons-pdfmake/pdfmake.min.js') }}"></script>
+<script src="{{ asset('js/plugins/datatables-buttons-pdfmake/vfs_fonts.js') }}"></script>
+<script src="{{ asset('js/plugins/datatables-buttons/buttons.print.min.js') }}"></script>
+<script src="{{ asset('js/plugins/datatables-buttons/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('js/plugins/datatables-buttons/buttons.colVis.min.js') }}"></script>
 <script src="{{ asset('js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('js/plugins/jquery-validation/additional-methods.js') }}"></script>
 <script src="{{ asset('js/plugins/select2/js/select2.full.min.js') }}"></script>
@@ -20,18 +32,14 @@
 <script>
     const COLUMNS = @json($columns);
 </script>
-@vite(['resources/js/pages/user.js'])
-@endsection
+@vite(['resources/js/pages/datatables.js','resources/js/pages/user.js'])
+@endpush
 
 @section('content')
-<x-hero-section
-    title="User"
-    subtitle="List of all users"
-    :breadcrumbs="[
+<x-hero-section title="User" subtitle="List of all users" :breadcrumbs="[
     ['label' => 'Management', 'url' => 'javascript:void(0)'],
     ['label' => 'User'],
-]"
-/>
+]" />
 <!-- Page Content -->
 <div class="content">
     <!-- Info -->
@@ -58,6 +66,9 @@
                 <button type="button" class="btn-block-option" data-bs-toggle="modal" data-bs-target="#form-modal">
                     <i class="si si-plus"></i>
                 </button>
+                <button type="button" class="btn-block-option" data-bs-toggle="modal" data-bs-target="#form-modal">
+                    <i class="si si-cloud-upload"></i>
+                </button>
                 @endcan
                 <button type="button" class="btn-block-option" data-toggle="block-option" id="btn-refresh">
                     <i class="si si-refresh"></i>
@@ -68,8 +79,7 @@
         </div>
         <div class="block-content block-content-full">
             <!-- DataTables init on table by adding .js-dataTable-full class, functionality is initialized in js/pages/tables_datatables.js -->
-            <table class="table table-bordered table-striped table-vcenter js-dataTable-full fs-sm w-100"
-                id="user-table">
+            <table class="table table-bordered table-striped table-vcenter fs-sm w-100" id="user-table">
                 <thead>
                     <tr>
                         <th class="text-center" style="width: 80px;">#</th>
@@ -92,7 +102,7 @@
 </div>
 @include('pages.user.partials.form')
 @section('filter-content')
-    <x-filter.input-select name="filter-role" label="Role" :options="$roles" />
+<x-filter.input-select name="filter-role" label="Role" :options="$roles" />
 @endsection
 <!-- END Page Content -->
 @endsection

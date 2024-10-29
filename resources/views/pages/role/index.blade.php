@@ -1,10 +1,10 @@
 @extends('layouts.backend')
-@section('css')
+@push('styles')
 <!-- Page JS Plugins CSS -->
 <link rel="stylesheet" href="{{ asset('js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}">
 <link rel="stylesheet" href="{{ asset('js/plugins/sweetalert2/sweetalert2.min.css') }}">
-@endsection
-@section('js')
+@endpush
+@push('scripts')
 <!-- Page JS Plugins -->
 <script src="{{ asset('js/plugins/datatables/dataTables.min.js') }}"></script>
 <script src="{{ asset('js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
@@ -18,16 +18,12 @@
 </script>
 <!-- Page JS Code -->
 @vite(['resources/js/pages/role.js'])
-@endsection
+@endpush
 @section('content')
-<x-hero-section
-    title="Role"
-    subtitle="List of all roles"
-    :breadcrumbs="[
+<x-hero-section title="Role" subtitle="List of all roles" :breadcrumbs="[
         ['label' => 'Dashboard', 'url' => 'javascript:void(0)'],
         ['label' => 'Role'],
-    ]"
-/>
+    ]" />
 <!-- Page Content -->
 <div class="content">
     <div class="block block-rounded" id="block-role">

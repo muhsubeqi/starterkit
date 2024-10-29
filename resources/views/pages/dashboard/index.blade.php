@@ -1,8 +1,8 @@
 @extends('layouts.backend')
-@section('js')
+@push('scripts')
 <script src="{{ asset('js/plugins/chart.js/chart.min.js') }}"></script>
 @vite(['resources/js/pages/dashboard.js'])
-@endsection
+@endpush
 @section('content')
 <!-- Hero -->
 <div class="content">

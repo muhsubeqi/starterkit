@@ -1,9 +1,9 @@
 @php
-    $permissionGroups = Spatie\Permission\Models\Permission::select('group_name')->groupBy('group_name')->get();
+$permissionGroups = Spatie\Permission\Models\Permission::select('group_name')->groupBy('group_name')->get();
 @endphp
 <form id="role-permission-form" method="post" action="" enctype="multipart/form-data">
-    <div class="modal fade" id="role-permission-modal" tabindex="-1" aria-labelledby="rolePermissionModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="role-permission-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="rolePermissionModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
