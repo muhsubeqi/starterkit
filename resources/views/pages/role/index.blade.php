@@ -1,23 +1,24 @@
 @extends('layouts.backend')
 @push('styles')
-<!-- Page JS Plugins CSS -->
-<link rel="stylesheet" href="{{ asset('js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}">
-<link rel="stylesheet" href="{{ asset('js/plugins/sweetalert2/sweetalert2.min.css') }}">
+@vite([
+'resources/sass/plugins/select2.scss',
+'resources/sass/plugins/datatables.scss',
+])
 @endpush
 @push('scripts')
-<!-- Page JS Plugins -->
-<script src="{{ asset('js/plugins/datatables/dataTables.min.js') }}"></script>
-<script src="{{ asset('js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
-<script src="{{ asset('js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-<script src="{{ asset('js/plugins/jquery-validation/additional-methods.js') }}"></script>
-<script src="{{ asset('js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
 
+@vite([
+'resources/js/plugins/datatables-init.js',
+'resources/js/plugins/jq-validation-init.js',
+'resources/js/plugins/select2-init.js',
+'resources/js/plugins/sweetalert2-init.js',
+'resources/js/pages/role.js'
+])
 <script>
     const PERMISSIONS = @json($permissions);
-        const COLUMNS = @json($columns);
+    const COLUMNS = @json($columns);
 </script>
 <!-- Page JS Code -->
-@vite(['resources/js/pages/role.js'])
 @endpush
 @section('content')
 <x-hero-section title="Role" subtitle="List of all roles" :breadcrumbs="[

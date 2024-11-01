@@ -57,15 +57,15 @@ class pageTablesDatatables {
               titleAttr: 'Column Visibility',
               className: 'btn btn-sm',
             },
-            {
-                extend: 'copyHtml5',
-                text: '<i class="fa fa-copy"></i>',
-                titleAttr: 'Copy',
-                className: 'btn btn-sm',
-                exportOptions: {
-                  columns: ':visible'
-                },
-            },
+            // {
+            //     extend: 'copyHtml5',
+            //     text: '<i class="fa fa-copy"></i>',
+            //     titleAttr: 'Copy',
+            //     className: 'btn btn-sm',
+            //     exportOptions: {
+            //       columns: ':visible'
+            //     },
+            // },
             {
                 extend: 'excelHtml5',
                 text: '<i class="fa fa-file-excel"></i>',
@@ -75,19 +75,20 @@ class pageTablesDatatables {
                   columns: ':visible'
                 },
             },
-            {
-                extend: 'pdfHtml5',
-                text: '<i class="fa fa-file-pdf"></i>',
-                titleAttr: 'Export to PDF',
-                className: 'btn btn-sm',
-                exportOptions: {
-                  columns: ':visible'
-                },
-            },
+            // {
+            //     extend: 'pdfHtml5',
+            //     text: '<i class="fa fa-file-pdf"></i>',
+            //     titleAttr: 'Export to PDF',
+            //     className: 'btn btn-sm',
+            //     exportOptions: {
+            //       columns: ':visible'
+            //     },
+            // },
             {
                 extend: 'print',
                 text: '<i class="fa fa-print"></i>',
                 titleAttr: 'Print',
+                title:'',
                 className: 'btn btn-sm',
                 exportOptions: {
                   columns: ':visible'

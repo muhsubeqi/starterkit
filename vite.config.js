@@ -13,7 +13,7 @@ export default defineConfig({
                 'resources/sass/oneui/themes/smooth.scss',
                 'resources/js/oneui/app.js',
                 'resources/js/app.js',
-                'resources/js/pages/datatables.js',
+                // 'resources/js/pages/datatables.js',
             ],
             refresh: true,
         }),

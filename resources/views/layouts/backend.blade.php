@@ -18,9 +18,6 @@
   <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('media/favicons/favicon-192x192.png') }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/favicons/apple-touch-icon-180x180.png') }}">
 
-  <!-- jQuery (required for OneUI plugin) -->
-  <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
-
   <!-- Modules -->
   @stack('styles')
   @vite(['resources/sass/main.scss', 'resources/js/oneui/app.js', 'resources/js/app.js'])

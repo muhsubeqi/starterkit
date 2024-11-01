@@ -1,38 +1,21 @@
 @extends('layouts.backend',['filter' => true])
 
 @push('styles')
-<!-- Page JS Plugins CSS -->
-<link rel="stylesheet" href="{{ asset('js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css') }}">
-<link rel="stylesheet" href="{{ asset('js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css') }}">
-<link rel="stylesheet" href="{{ asset('js/plugins/datatables-responsive-bs5/css/responsive.bootstrap5.min.css') }}">
-<link rel="stylesheet" href="{{ asset('js/plugins/select2/css/select2.min.css') }}">
-<link rel="stylesheet" href="{{ asset('js/plugins/sweetalert2/sweetalert2.min.css') }}">
+@vite([
+'resources/sass/plugins/select2.scss',
+'resources/sass/plugins/datatables.scss',
+])
 @endpush
-
 @push('scripts')
-
-<!-- Page JS Plugins -->
-<script src="{{ asset('js/plugins/datatables/dataTables.min.js') }}"></script>
-<script src="{{ asset('js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
-<script src="{{ asset('js/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
-<script src="{{ asset('js/plugins/datatables-responsive-bs5/js/responsive.bootstrap5.min.js') }}"></script>
-<script src="{{ asset('js/plugins/datatables-buttons/dataTables.buttons.min.js') }}"></script>
-<script src="{{ asset('js/plugins/datatables-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
-<script src="{{ asset('js/plugins/datatables-buttons-jszip/jszip.min.js') }}"></script>
-<script src="{{ asset('js/plugins/datatables-buttons-pdfmake/pdfmake.min.js') }}"></script>
-<script src="{{ asset('js/plugins/datatables-buttons-pdfmake/vfs_fonts.js') }}"></script>
-<script src="{{ asset('js/plugins/datatables-buttons/buttons.print.min.js') }}"></script>
-<script src="{{ asset('js/plugins/datatables-buttons/buttons.html5.min.js') }}"></script>
-<script src="{{ asset('js/plugins/datatables-buttons/buttons.colVis.min.js') }}"></script>
-<script src="{{ asset('js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-<script src="{{ asset('js/plugins/jquery-validation/additional-methods.js') }}"></script>
-<script src="{{ asset('js/plugins/select2/js/select2.full.min.js') }}"></script>
-<script src="{{ asset('js/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-<!-- Page JS Code -->
 <script>
     const COLUMNS = @json($columns);
 </script>
-@vite(['resources/js/pages/datatables.js','resources/js/pages/user.js'])
+@vite([
+'resources/js/plugins/datatables-init.js',
+'resources/js/plugins/jq-validation-init.js',
+'resources/js/plugins/select2-init.js',
+'resources/js/plugins/sweetalert2-init.js',
+'resources/js/pages/user.js'])
 @endpush
 
 @section('content')
